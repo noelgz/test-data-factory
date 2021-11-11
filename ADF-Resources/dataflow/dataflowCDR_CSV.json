@@ -1,0 +1,35 @@
+{
+	"name": "dataflowCDR_CSV",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "output_csv",
+						"type": "DatasetReference"
+					},
+					"name": "CDRCSV"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "CSVProcessed",
+						"type": "DatasetReference"
+					},
+					"name": "OutputResult"
+				}
+			],
+			"transformations": [
+				{
+					"name": "SubscriberSort"
+				},
+				{
+					"name": "FilterToPlanPremium"
+				}
+			],
+			"script": "source(output(\n\t\tTByteNight as string,\n\t\tTByteDay as string,\n\t\tStateZeroRate as string,\n\t\tPlanQuotaZeroRate as string,\n\t\tTotalBytesOut as string,\n\t\tTotalBytesIn as string,\n\t\tSw5Torrents as string,\n\t\tSw4FileSharing as string,\n\t\tSw3Consoles as string,\n\t\tSw2SoftMarket as string,\n\t\tDataSaver as string,\n\t\tTokenEndDateState as string,\n\t\tTokenState as string,\n\t\tTokenRate as string,\n\t\tTokenEndDate as string,\n\t\tTokenQuota as string,\n\t\tTotalBytes as string,\n\t\tTerminalName as string,\n\t\tState as string,\n\t\tBillingCycle as string,\n\t\tIspId as string,\n\t\tIspName as string,\n\t\tFreeZoneQuotaState as string,\n\t\tFreeZoneRate as string,\n\t\tFreeZoneQuota as string,\n\t\tFreeZone as string,\n\t\tPlanZeroRate as string,\n\t\tPlanZeroRateOut as string,\n\t\tPlanZeroRateIn as string,\n\t\tPlanQuotaState as string,\n\t\tPlanQuotaRate as string,\n\t\tPlanQuotaRateOut as string,\n\t\tPlanQuotaRateIn as string,\n\t\tPlanQuota as string,\n\t\tPlan as string,\n\t\tIP as string,\n\t\tMAC as string,\n\t\tsubscriberId as integer '000',\n\t\tPlanType as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: true,\n\tignoreNoFilesFound: false) ~> CDRCSV\nCDRCSV sort(asc(subscriberId, true)) ~> SubscriberSort\nSubscriberSort filter(like(Plan, '%Premium%')) ~> FilterToPlanPremium\nFilterToPlanPremium sink(allowSchemaDrift: true,\n\tvalidateSchema: true,\n\tpartitionFileNames:['CDRCSV_clean.csv'],\n\tumask: 0022,\n\tpreCommands: [],\n\tpostCommands: [],\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tTByteNight,\n\t\tTByteDay,\n\t\tStateZeroRate,\n\t\tPlanQuotaZeroRate,\n\t\tTotalBytesOut,\n\t\tTotalBytesIn,\n\t\tSw5Torrents,\n\t\tSw4FileSharing,\n\t\tSw3Consoles,\n\t\tSw2SoftMarket,\n\t\tDataSaver,\n\t\tTokenEndDateState,\n\t\tTokenState,\n\t\tTokenRate,\n\t\tTokenEndDate,\n\t\tTokenQuota,\n\t\tTotalBytes,\n\t\tTerminalName,\n\t\tState,\n\t\tBillingCycle,\n\t\tIspId,\n\t\tIspName,\n\t\tFreeZoneQuotaState,\n\t\tFreeZoneRate,\n\t\tFreeZoneQuota,\n\t\tFreeZone,\n\t\tPlanZeroRate,\n\t\tPlanZeroRateOut,\n\t\tPlanZeroRateIn,\n\t\tPlanQuotaState,\n\t\tPlanQuotaRate,\n\t\tPlanQuotaRateOut,\n\t\tPlanQuotaRateIn,\n\t\tPlanQuota,\n\t\tPlan,\n\t\tIP,\n\t\tMAC,\n\t\tsubscriberId,\n\t\tPlanType\n\t),\n\tpartitionBy('hash', 1)) ~> OutputResult"
+		}
+	}
+}
