@@ -1,0 +1,570 @@
+{
+	"name": "PipelineTest",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopyData",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "DelimitedTextSink",
+						"storeSettings": {
+							"type": "AzureBlobFSWriteSettings"
+						},
+						"formatSettings": {
+							"type": "DelimitedTextWriteSettings",
+							"quoteAllText": true,
+							"fileExtension": ".csv"
+						}
+					},
+					"enableStaging": false,
+					"dataIntegrationUnits": 2,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "TByteNight",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TByteNight",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TByteDay",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TByteDay",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "StateZeroRate",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "StateZeroRate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanQuotaZeroRate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanQuotaZeroRate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalBytesOut",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalBytesOut",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalBytesIn",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalBytesIn",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sw5Torrents",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sw5Torrents",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sw4FileSharing",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sw4FileSharing",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sw3Consoles",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sw3Consoles",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Sw2SoftMarket",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Sw2SoftMarket",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "DataSaver",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "DataSaver",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TokenEndDateState",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TokenEndDateState",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TokenState",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TokenState",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TokenRate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TokenRate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TokenEndDate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TokenEndDate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TokenQuota",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TokenQuota",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TotalBytes",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TotalBytes",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "TerminalName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "TerminalName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "State",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "BillingCycle",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "BillingCycle",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IspId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IspId",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IspName",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IspName",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FreeZoneQuotaState",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FreeZoneQuotaState",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FreeZoneRate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FreeZoneRate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FreeZoneQuota",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FreeZoneQuota",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "FreeZone",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "FreeZone",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanZeroRate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanZeroRate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanZeroRateOut",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanZeroRateOut",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanZeroRateIn",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanZeroRateIn",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanQuotaState",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanQuotaState",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanQuotaRate",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanQuotaRate",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanQuotaRateOut",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanQuotaRateOut",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanQuotaRateIn",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanQuotaRateIn",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanQuota",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanQuota",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "Plan",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "Plan",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "IP",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "IP",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "MAC",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "MAC",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "subscriberId",
+									"type": "String",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "subscriberId",
+									"type": "String",
+									"physicalType": "String"
+								}
+							},
+							{
+								"source": {
+									"name": "PlanType",
+									"type": "Int32",
+									"physicalType": "String"
+								},
+								"sink": {
+									"name": "PlanType",
+									"type": "String",
+									"physicalType": "String"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "input_csv",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "output_csv",
+						"type": "DatasetReference"
+					}
+				]
+			},
+			{
+				"name": "DataFlowCDR",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [
+					{
+						"activity": "CopyData",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "dataflowCDR_CSV",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-11-08T11:22:22Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

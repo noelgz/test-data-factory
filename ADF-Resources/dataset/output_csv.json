@@ -1,0 +1,180 @@
+{
+	"name": "output_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "develop"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "TByteNight",
+				"type": "String"
+			},
+			{
+				"name": "TByteDay",
+				"type": "String"
+			},
+			{
+				"name": "StateZeroRate",
+				"type": "String"
+			},
+			{
+				"name": "PlanQuotaZeroRate",
+				"type": "String"
+			},
+			{
+				"name": "TotalBytesOut",
+				"type": "String"
+			},
+			{
+				"name": "TotalBytesIn",
+				"type": "String"
+			},
+			{
+				"name": "Sw5Torrents",
+				"type": "String"
+			},
+			{
+				"name": "Sw4FileSharing",
+				"type": "String"
+			},
+			{
+				"name": "Sw3Consoles",
+				"type": "String"
+			},
+			{
+				"name": "Sw2SoftMarket",
+				"type": "String"
+			},
+			{
+				"name": "DataSaver",
+				"type": "String"
+			},
+			{
+				"name": "TokenEndDateState",
+				"type": "String"
+			},
+			{
+				"name": "TokenState",
+				"type": "String"
+			},
+			{
+				"name": "TokenRate",
+				"type": "String"
+			},
+			{
+				"name": "TokenEndDate",
+				"type": "String"
+			},
+			{
+				"name": "TokenQuota",
+				"type": "String"
+			},
+			{
+				"name": "TotalBytes",
+				"type": "String"
+			},
+			{
+				"name": "TerminalName",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": "BillingCycle",
+				"type": "String"
+			},
+			{
+				"name": "IspId",
+				"type": "String"
+			},
+			{
+				"name": "IspName",
+				"type": "String"
+			},
+			{
+				"name": "FreeZoneQuotaState",
+				"type": "String"
+			},
+			{
+				"name": "FreeZoneRate",
+				"type": "String"
+			},
+			{
+				"name": "FreeZoneQuota",
+				"type": "String"
+			},
+			{
+				"name": "FreeZone",
+				"type": "String"
+			},
+			{
+				"name": "PlanZeroRate",
+				"type": "String"
+			},
+			{
+				"name": "PlanZeroRateOut",
+				"type": "String"
+			},
+			{
+				"name": "PlanZeroRateIn",
+				"type": "String"
+			},
+			{
+				"name": "PlanQuotaState",
+				"type": "String"
+			},
+			{
+				"name": "PlanQuotaRate",
+				"type": "String"
+			},
+			{
+				"name": "PlanQuotaRateOut",
+				"type": "String"
+			},
+			{
+				"name": "PlanQuotaRateIn",
+				"type": "String"
+			},
+			{
+				"name": "PlanQuota",
+				"type": "String"
+			},
+			{
+				"name": "Plan",
+				"type": "String"
+			},
+			{
+				"name": "IP",
+				"type": "String"
+			},
+			{
+				"name": "MAC",
+				"type": "String"
+			},
+			{
+				"name": "subscriberId",
+				"type": "String"
+			},
+			{
+				"name": "PlanType",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
