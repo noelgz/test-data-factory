@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVaultSynapseToML",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://mlworkspace5320840513.vault.azure.net/"
+		}
+	}
+}
