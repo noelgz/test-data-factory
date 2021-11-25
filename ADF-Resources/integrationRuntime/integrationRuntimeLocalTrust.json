@@ -1,0 +1,6 @@
+{
+	"name": "integrationRuntimeLocalTrust",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}
